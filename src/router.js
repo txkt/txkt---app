@@ -7,13 +7,16 @@ import company from '@/views/company'
 import course from '@/components/wj-components/course'
 import teacher from '@/components/wj-components/teacher'
 import recommend from '@/components/wj-components/recommend'
+import Login from './views/login'
+import Signin from './views/signin'
+import Forgetword from './views/forgetword'
 
 Vue.use(Router)
 
-export default new Router({
+let router = new Router({
   routes: [
     {
-      path: '/',
+      path: '/hphk',
       name: 'hphk',
       component: hphk
     },
@@ -45,7 +48,24 @@ export default new Router({
           component:recommend
         }
       ]
-    }
+    },
+		
+		{
+			path:"/Login",
+			name:"Login",
+			component:Login,
+		},
+		{
+			path:"/Signin",
+			name:"Signin",
+			component:Signin,
+		},
+		{
+			path:"/Forgetword",
+			name:"Forgetword",
+			component:Forgetword,
+		}
    
   ]
 })
+export default router;
