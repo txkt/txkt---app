@@ -4,7 +4,7 @@
         <h3 class="collection-head">限时优惠</h3>
         <div class="coll-body"> 
             <ul class="clearfix"> 
-				<router-link to='/txDetails'>
+				<router-link to="/txDetails?id=001">
                 <li class="course"> 
                     <a href="#" class="bannimg">
                         <img src="../../assets/wj-imgs/hao02.jpg"> 
@@ -19,16 +19,18 @@
                 </li>
 				</router-link>
 				 <li class="course"> 
+					 <router-link to="/txDetails?id=002">
 				    <a href="#" class="bannimg">
 				        <img src="../../assets/wj-imgs/hao3.png"> 
 				    </a>
 				    <div class="course-info"> 
-				        <a  href="#" class="course-name"> 人人都需要的新媒体运营合辑</a> 
+				        <a  href="#" class="course-name"> 人人都会微信小程序</a> 
 				        <div class="course-number"> 
-				            <span class="course-price">¥19.00</span>
-				            <span class="course-discount-price">¥39.00</span> 
+				            <span class="course-price">¥4.90</span>
+				            <span class="course-discount-price">¥49.00</span> 
 				        </div> 
 				    </div> 
+					</router-link>
 				</li>
             </ul>
         </div>
@@ -42,12 +44,12 @@
 	                    <img src="../../assets/wj-imgs/hao4.png"> 
 	                </a>
 	                <div class="course-info"> 
-	                    <a  href="#" class="course-name"> 人人都需要的新媒体运营合辑</a> 
+	                    <a  href="#" class="course-name"> Premiere影视后期课--视频剪辑教程</a> 
 	                    <div class="course-number"> 
 	                        <span class="course-price">免费</span>
 	                        <span class="course-students">
 	                            <van-icon name="contact" />
-	                            <span>5</span>
+	                            <span>4909</span>
 	                        </span>
 	                    </div> 
 	                </div> 
@@ -57,12 +59,12 @@
 				        <img src="../../assets/wj-imgs/hao5.jpg"> 
 				    </a>
 				    <div class="course-info"> 
-				        <a  href="#" class="course-name"> 人人都需要的新媒体运营合辑</a> 
+						<a  href="#" class="course-name"> 抖音、VLOG短视频运营--自媒体变现教程</a> 
 				        <div class="course-number"> 
 				             <span class="course-price">免费</span>
 				           <span class="course-students">
 	                            <van-icon name="contact" />
-	                            <span>233</span>
+	                            <span>1万</span>
 	                        </span>
 				        </div> 
 				    </div> 
@@ -72,7 +74,7 @@
 				        <img src="../../assets/wj-imgs/hao6.jpg"> 
 				    </a>
 				    <div class="course-info"> 
-				        <a  href="#" class="course-name"> 人人都需要的新媒体运营合辑</a> 
+				        <a  href="#" class="course-name"> Axure实战班，互联网必学技能</a> 
 				        <div class="course-number"> 
 				             <span class="course-price">免费</span>
 				           <span class="course-students">
@@ -86,8 +88,8 @@
 				    <a href="#" class="bannimg">
 				        <img src="../../assets/wj-imgs/hao7.jpg"> 
 				    </a>
-				    <div class="course-info"> 
-				        <a  href="#" class="course-name"> 人人都需要的新媒体运营合辑</a> 
+				    <div class="course-info">
+				        <a  href="#" class="course-name"> 从0基础到职业美工--美工实战课</a> 
 				        <div class="course-number"> 
 				             <span class="course-price">免费</span>
 				            <span class="course-students">
@@ -101,8 +103,8 @@
 				    <a href="#" class="bannimg">
 				        <img src="../../assets/wj-imgs/hao9.png"> 
 				    </a>
-				    <div class="course-info"> 
-				        <a  href="#" class="course-name"> 人人都需要的新媒体运营合辑</a> 
+				    <div class="course-info">
+				        <a  href="#" class="course-name"> 0基础文案体验营——3天打开文案思维，提升工作表现</a> 
 				        <div class="course-number"> 
 				             <span class="course-price">免费</span>
 				             <span class="course-students">
@@ -116,13 +118,13 @@
 				    <a href="#" class="bannimg">
 				        <img src="../../assets/wj-imgs/hao10.jpg"> 
 				    </a>
-				    <div class="course-info"> 
-				        <a  href="#" class="course-name"> 人人都需要的新媒体运营合辑</a> 
+				    <div class="course-info">
+				        <a  href="#" class="course-name"> 学会高效自媒体内容创作化技能</a> 
 				        <div class="course-number"> 
 				             <span class="course-price">免费</span>
 				             <span class="course-students">
 	                            <van-icon name="contact" />
-	                            <span>24</span>
+	                            <span>3万</span>
 	                        </span>
 				        </div> 
 				    </div> 
@@ -138,8 +140,8 @@
 	                <a href="#" class="bannimg">
 	                    <img src="../../assets/wj-imgs/hao11.jpg"> 
 	                </a>
-	                <div class="course-info"> 
-	                    <a  href="#" class="course-name"> 人人都需要的新媒体运营合辑</a> 
+	                <div class="course-info">
+	                    <a  href="#" class="course-name"> C/C++学习指南系列(零基础入门)</a> 
 	                    <div class="course-number"> 
 	                        <span class="course-price">¥18.00</span>
 	                        <span class="course-students">
@@ -153,8 +155,8 @@
 				    <a href="#" class="bannimg">
 				        <img src="../../assets/wj-imgs/hao12.png"> 
 				    </a>
-				    <div class="course-info"> 
-				        <a  href="#" class="course-name"> 人人都需要的新媒体运营合辑</a> 
+				    <div class="course-info">
+				        <a  href="#" class="course-name"> 淘宝0基础新手卖家必学运营课程</a> 
 				        <div class="course-number"> 
 				            <span class="course-price">¥98.00</span>
 				             <span class="course-students">
@@ -168,8 +170,8 @@
 				    <a href="#" class="bannimg">
 				        <img src="../../assets/wj-imgs/hao12.jpg"> 
 				    </a>
-				    <div class="course-info"> 
-				        <a  href="#" class="course-name"> 人人都需要的新媒体运营合辑</a> 
+				    <div class="course-info">
+				        <a  href="#" class="course-name"> pr基础教程--100分钟学会剪片子</a> 
 				        <div class="course-number"> 
 				            <span class="course-price">¥12.00</span>
 				             <span class="course-students">
@@ -184,7 +186,7 @@
 				        <img src="../../assets/wj-imgs/hao13.jpg"> 
 				    </a>
 				    <div class="course-info"> 
-				        <a  href="#" class="course-name"> 人人都需要的新媒体运营合辑</a> 
+				        <a  href="#" class="course-name"> 搜索引擎优化SEO，零基础也能学</a> 
 				        <div class="course-number"> 
 				            <span class="course-price">¥1.00</span>
 				             <span class="course-students">
@@ -321,6 +323,7 @@
     height: 0.4rem;
     line-height: 0.2rem;
 	color: #333;
+	overflow: hidden;
 	}
 	.course-number{
 	height: 0.24rem;

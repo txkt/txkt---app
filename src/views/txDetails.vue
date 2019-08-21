@@ -1,10 +1,10 @@
 <template>
 <div>
     <detailsHeader></detailsHeader>
-	<hVideo></hVideo>
-	<detailstitle></detailstitle>
-	<textlist></textlist>
-	<delabel></delabel>
+	<hVideo :id="id"></hVideo>
+	<detailstitle :id="id"></detailstitle>
+	<textlist :id="id"></textlist>
+	<delabel :id="id"></delabel>
 </div>
 </template>
 
@@ -16,9 +16,14 @@ import textlist from '../components/wj-components/textList.vue'
 import delabel from '../components/wj-components/delabel.vue'
 	export default {
 		name:'txDetails',
+		data(){
+			return {
+				id:this.$route.query.id
+			}
+		},
 		components: {
             detailsHeader,hVideo,detailstitle,textlist,delabel
-  }
+		  }
 	}
 </script>
 

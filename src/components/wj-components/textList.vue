@@ -1,7 +1,30 @@
 <template>
 	<div class="catalog-info" style="max-height:5.2rem;" ref="more">
 		<ul>
-			<li class="sub-chapter" @click="jingji">
+			<li class="sub-chapter" @click="jingji" v-for="item in textlist">
+				<div class="chapter-header list-hide">
+					<van-icon name="arrow-down" style="display:none" ref="down"/>
+					<van-icon name="arrow-up" ref="up"/>
+					<div class="sub-title">
+						<div class="sub-name">
+							<span class="tt-num">{{item.ttnum}}</span>
+							{{item.tttxt}}
+						</div>
+					</div>
+				</div>
+				<ul class="task-items hide" ref="hide">
+					<li class="task-item" v-for="tot in item.childlist">
+						<van-icon name="live"/>
+						<div class="task-content">
+							<div class="task-title">
+								<div class="task-name">{{tot.taskname}}</div>
+							</div>
+								<div class="task-des">{{tot.taskdes}}</div>
+						</div>
+					</li>
+				</ul>
+			</li>
+			<!-- <li class="sub-chapter" @click="jingji">
 				<div class="chapter-header list-hide">
 					<van-icon name="arrow-down" style="display:none" ref="down"/>
 					<van-icon name="arrow-up" ref="up"/>
@@ -161,9 +184,12 @@
 						</div>
 					</div>
 				</div>
-			</li>
+			</li> -->
 		</ul>
-		<div class="collapse-btn">
+
+
+
+		<div class="collapse-btn" ref="colbtn">
 			<p class="collapse-virtual"></p>
 			<p class="collapse-tip" @click="more">查看全部</p>
 		</div>
@@ -175,12 +201,13 @@
 		name:'textList',
 		data:function(){
 			return {
-				
+				textlist:[]
 			}
 		},
 		methods:{
 			more:function(){
 				this.$refs.more.style.maxHeight="";
+				this.$refs.colbtn.style.display="none";
 			},
 			jingji:function(){
 				if(this.$refs.up.style.display=="block"){
@@ -193,18 +220,36 @@
 				this.$refs.hide.style.display="block";
 				}
 				
-			}
-		}
+			},
+			
+		},
+		props:{
+			id:String
+		},
+		created:function(){
+		fetch('http://localhost:3000/details')
+		.then((res)=>{
+			return res.json();
+		})
+		.then((datas)=>{
+			for(var i in datas){
+                    if(datas[i].details_id==this.id){
+						this.textlist=datas[i].textlist,
+						console.log(this.textlist)
+                    }
+			    }   
+		})
+	}	
 	}	
 </script>
 
 <style scoped="scoped">
 	.catalog-info {
     margin-bottom: .2rem;
-	    position: relative;
+	position: relative;
     overflow: hidden;
 	font-size: .16rem;
-	    line-height: 1.5;
+	line-height: 1.5;
     color: #333;
 }
 .catalog-info:after {

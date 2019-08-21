@@ -15,11 +15,11 @@
 		
 		<section class="section comment-info">
 			<ul class="comment-list">
-				<li class="comments-list-item">
+				<li class="comments-list-item" v-for="item in commenlist">
 					<div class="comment-user">
-						<img class="comment-avatar" src="../../assets/wj-imgs/personpic01.jpg">
+						<img class="comment-avatar" :src="item.comsrc">
 						<div style="display: flex;">
-							<div class="comments-list-item__name">A****</div>
+							<div class="comments-list-item__name">{{item.comname}}</div>
 							<span class="star-list">
 								<van-icon name="star" />
 								<van-icon name="star" />
@@ -30,38 +30,13 @@
 						</div>
 					</div> 
 					<div class="comment-content">
-						<p class="comment-txt">实用，精致，用心之作。实货干货丰富 ，语言幽默。</p>
+						<p class="comment-txt">{{item.comtxt}}</p>
 						<p class="comment-foot">
-							<span class="comment-studytime">已上课16时39分时评论</span>
-							<time class="comment-time">2019-07-17</time>
+							<span class="comment-studytime">{{item.studytime}}</span>
+							<time class="comment-time">{{item.comtime}}</time>
 						</p>
 					</div>
 				</li>
-				<ul v-infinite-scroll="loadMore" infinite-scroll-disabled="loading"  infinite-scroll-distance="10">
-  					<li v-for="item in list"  class="comments-list-item">
-						  <!-- {{ item }} -->
-						<div class="comment-user">
-						<img class="comment-avatar" src="../../assets/wj-imgs/personpic01.jpg">
-						<div style="display: flex;">
-							<div class="comments-list-item__name">A****</div>
-							<span class="star-list">
-								<van-icon name="star" />
-								<van-icon name="star" />
-								<van-icon name="star" />
-								<van-icon name="star" />
-								<van-icon name="star" />
-							</span>
-						</div>
-					</div> 
-					<div class="comment-content">
-						<p class="comment-txt">实用，精致，用心之作。实货干货丰富 ，语言幽默。</p>
-						<p class="comment-foot">
-							<span class="comment-studytime">已上课16时39分时评论</span>
-							<time class="comment-time">2019-07-17</time>
-						</p>
-					</div>
-					</li>
-					</ul>
 				</ul>
 		</section>
 	</div>
@@ -72,22 +47,18 @@
 		name:'goodCom',
 		data:function(){
 			return {
-				item:1,
-				// list:[1,2,3]
+				commenlist:[]
 			}
 		},
-		methods: {
-    		// loadMore() {
-  			// 	this.loading = false;
-			// 	setTimeout(() => {
-			// 		let last = this.list[this.list.length - 1];
-			// 		for (let i = 1; i <= 10; i++) {
-			// 		this.list.push(last + i);
-			// 		}
-			// 		this.loading = false;
-			// 	}, 2500);
-			// 	}
- 		 }
+		created:function(){
+		fetch('http://localhost:3000/commenlist')
+		.then((res)=>{
+			return res.json();
+		})
+		.then((datas)=>{
+			this.commenlist = datas;
+		})
+	}
 	}	
 </script>
 

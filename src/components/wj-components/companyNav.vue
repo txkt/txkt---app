@@ -1,27 +1,39 @@
 <template>
 	<nav class="nav-box">
-        <ul id="js-tab-bar" class="tab-bar with-3-tabs border-bottom" data-cur-tab="1">
-
-            <li class="tab-bar__item"> 
-                <router-link to="/company/recommend">
-                推荐 
-                </router-link>
-            </li>
-            <li class="tab-bar__item z-active">
-                 <router-link to="/company/">
-                 课程(2)
-                </router-link>
-            </li>
-            <li class="tab-bar__item">
-                <router-link to="/company/teacher">
-                 老师(2)
-                </router-link>
-            </li>
+        <ul id="js-tab-bar" class="tab-bar with-3-tabs border-bottom">
+             
+                <li class="tab-bar__item">   
+                    <router-link to="/company/recommend"> 
+                    推荐    
+                     </router-link>
+                </li>
+                <li class="tab-bar__item">
+                     <router-link to="/company/" exact>
+                    课程(2)
+                     </router-link>
+                </li>
+                <li class="tab-bar__item">
+                      <router-link to="/company/teacher">
+                    老师(2)
+                     </router-link>
+                </li>
+            
         </ul>
     </nav>
 </template>
 
 <script>
+	export default {
+		name:'companyNav',
+		data:function(){
+			return {
+				
+			}
+		},
+		methods: {
+    		
+ 		 }
+	}	
 </script>
 
 <style scoped="scoped">
@@ -36,7 +48,9 @@
     color: #000;
     background-color: #fff;
 }
-
+a{
+    color: #000;
+}
 .tab-bar {
     position: relative;
     height: .4rem;
@@ -50,9 +64,8 @@
     float: left;
     text-align: center;
 }
-
-.z-active {
-    border-bottom: 3px solid #23b8ff;
+.router-link-active{
+     border-bottom: 3px solid #23b8ff;
     display: block;
     z-index: 10;
     color: #23b8ff;

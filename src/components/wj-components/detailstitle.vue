@@ -1,13 +1,13 @@
 <template>
 	<div class="basicInfo">
-		<h1>老路：用得上的商学课</h1>
+		<h1>{{titledata.title}}</h1>
 		<div class="apply-info">
 			<div class="basic-summary-data">
 				<span class="price course-detail-price">
 					<span class="coursedot">¥</span>
-				99.00</span>	
-				<span class="summary-item">购买人数 1660</span>
-				<span class="summary-item">好评 93%</span>
+				{{titledata.price}}</span>	
+				<span class="summary-item">购买人数 {{titledata.pnum}}</span>
+				<span class="summary-item">好评 {{titledata.goodcom}}</span>
 			</div>
 		</div>
 		<div class="basic-summary-operation">
@@ -63,7 +63,9 @@
 		data:function(){
 			return {
 				show: false,
-				show1:false
+				show1:false,
+				titledata:" "
+
 			}
 		},
 		methods: {
@@ -76,7 +78,24 @@
 				this.$refs.shou1.style.color="red";
 				this.show1=true;
 			}
- 		 }
+		  },
+		props:{
+			id:String
+		},
+		created:function(){
+		fetch('http://localhost:3000/details')
+		.then((res)=>{
+			return res.json();
+		})
+		.then((datas)=>{
+			for(var i in datas){
+                    if(datas[i].details_id==this.id){
+						this.titledata=datas[i].detailstitle,
+						console.log(this.titledata)
+                    }
+			    }   
+		})
+	}	
 	}	
 </script>
 

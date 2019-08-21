@@ -3,11 +3,12 @@
 		<section class=" section label-info">
 			<h2 class="section-tt">课程标签</h2>
 			<div class="s-tag-list labels">
-				<span class="tag-item">战略</span>
+				<!-- <span class="tag-item">战略</span>
 				<span class="tag-item">沟通</span>
 				<span class="tag-item">销售</span>
 				<span class="tag-item">财务</span>
-				<span class="tag-item">职场心态</span>
+				<span class="tag-item">职场心态</span> -->
+				<span class="tag-item" v-for="item in data.labels">{{item}}</span>
 			</div>
 		</section>
 		<section class="section label-info">
@@ -15,11 +16,10 @@
 			<div class="teacher-list-wrapper">
 				<ul class="teacher-list">
 					<li class="teacher-item-wrapper">
-						<img src="../../assets/wj-imgs/teacher1.jpg" class="teacher-avatar "/>
+						<img :src="data.teacher.tea_imgUrl" class="teacher-avatar "/>
 						<div class="teacher-desc">
-							<p class="teacher-name">路骋</p>
-							<p class="teacher-summary">老路识堂创始人，天使投资人；历任京东集团副总裁，聚美优品POP事业部总经理等；清华大学 – 麻省理工【MIT】国际MBA；
-							《用得上的商学课》主讲，上线1年全网订阅60万份，总营收过6000万。</p>
+							<p class="teacher-name">{{data.teacher.tea_name}}</p>
+							<p class="teacher-summary">{{data.teacher.tea_summary}}</p>
 						</div>
 					</li>
 				</ul>
@@ -27,23 +27,27 @@
 		</section>
 		<section class="section label-info">
 			<h2 class="section-tt">课程详情</h2>
-			<div style="text-align: center;" class="dela">
-				<p>100天，99元；</p>
+			<div style="text-align: center;" class="dela" ref="domore">
+				<!-- <p>100天，99元；</p>
 				<p>每天1块钱，每天7分钟；</p>
 				<p>每天1个用得上的商学知识点，</p>
-				<p>每个知识点3种实战用法。</p>
-				<p class="last">课程共计100期，每月更新20期</p>
-				<img src="../../assets/wj-imgs/inteacher01.jpg" />
+				<p>每个知识点3种实战用法。</p> --> 
+				<p v-for="i in data.dela">{{i}}</p>
+				<!-- <p class="last">课程共计100期，每月更新20期</p> -->
+				<!-- <img src="../../assets/wj-imgs/inteacher01.jpg" />
 				<img src="../../assets/wj-imgs/inteacher.jpg" />
 				<img src="../../assets/wj-imgs/inteacher03.jpg" />
 				<img src="../../assets/wj-imgs/inteacher04.jpg" />
 				<img src="../../assets/wj-imgs/inteacher05.jpg" />
-				<img src="../../assets/wj-imgs/inteacher06.jpg" />
-				<span class="detail-sign">* 课程提供者： <!-- -->北京老路说管理咨询有限公司</span>
+				<img src="../../assets/wj-imgs/inteacher06.jpg" /> -->
+
+				<img  v-for="t in data.srcimg" :src="t">
+				
 			</div>
+			<span class="detail-sign">* 课程提供者： <!-- -->{{data.sign}}</span>
 		</section>
 		<section class="section comment-info">
-			<h2 class="section-tt">学员评论(53)
+			<h2 class="section-tt">学员评论({{data.comment.num1}})
 				<router-link to="/comment">
 				<a class="btn-viewall js-report-link">查看全部</a>
 				</router-link>
@@ -51,9 +55,9 @@
 			<ul class="comment-list">
 				<li class="comment-item">
 					<div class="comment-user">
-						<img class="comment-avatar" src="../../assets/wj-imgs/personpic01.jpg">
+						<img class="comment-avatar" :src="data.comment.pimg">
 						<div>
-							<p class="comment-username">A****</p>
+							<p class="comment-username">{{data.comment.username}}</p>
 							<span class="star-list">
 								<van-icon name="star" />
 								<van-icon name="star" />
@@ -64,8 +68,8 @@
 						</div>
 					</div> 
 					<div class="comment-content">
-						<p class="comment-txt">实用，精致，用心之作。实货干货丰富 ，语言幽默。</p>
-						<p class="comment-foot"><span class="comment-studytime">已上课16时39分时评论</span></p>
+						<p class="comment-txt">{{data.comment.comtext}}</p>
+						<p class="comment-foot"><span class="comment-studytime">{{data.comment.comfoot}}</span></p>
 					</div>
 				</li>
 			</ul>
@@ -74,23 +78,50 @@
 		<section class="section agency-info">
 			<h2 class="section-tt">授课机构</h2>
 			<a class="agency-card">
-				<img class="agency-avatar" src="../../assets/wj-imgs/laolu.png">
+				<img class="agency-avatar" :src="data.agency.agencyimg">
 				<div class="agency-desc">
-					<p class="agency-name">北京老路说管理咨询有限公司</p>
+					<p class="agency-name">{{data.agency.agencyname}}</p>
 					<ul class="agency-data">
-						<li>好评度93%</li>
+						<li>好评度{{data.agency.agencygood}}</li>
 						<li class="slash"> &nbsp;| &nbsp; </li>
-						<li>课程数<!-- -->2</li>
+						<li>课程数<!-- -->{{data.agency.agencynum}}</li>
 						<li class="slash"> &nbsp; | &nbsp; </li>
-						<li>学生数<!-- -->1807</li>
+						<li>学生数<!-- -->{{data.agency.studentnum}}</li>
 					</ul>
 				</div>
 			</a>
 		</section>
 		</router-link>
-		<section class="section recomend-courses">
+		<ul class="section recomend-courses" >
 			<h2 class="section-tt">老师推荐课程</h2>
-			<a class="course-card-wrapper js-report-link" href="#">
+			<li class="course-card-wrapper js-report-link" href="#" v-for="i in data.recomend_courses"  >
+				<div class="course-card-cover">
+					<img :src="i.img1">
+					<span class="course-card-tips">{{i.course_tips}}人购买</span>
+				</div>
+				<div class="course-card-content">
+					<h3 class="course-card-name">{{i.course_name}}</h3>
+					<div class="course-card-price">
+						<span class="price">{{i.course_price}}</span>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<ul class="section recomend-courses">
+			<h2 class="section-tt">机构热门课程</h2>
+			<li class="course-card-wrapper js-report-link" href="#" v-for="tt in data.recomend" >
+				<div class="course-card-cover">
+					<img :src="tt.imgurl">
+					<span class="course-card-tips">{{tt.course_tips}}人购买</span>
+				</div>
+				<div class="course-card-content">
+					<h3 class="course-card-name">{{tt.course_name}}</h3>
+					<div class="course-card-price">
+						<span class="price">{{tt.course_price}}</span>
+					</div>
+				</div>
+			</li>
+			<!-- <a class="course-card-wrapper js-report-link" href="#">
 				<div class="course-card-cover">
 					<img src="../../assets/wj-imgs/picture00.jpg">
 					<span class="course-card-tips">145人购买</span>
@@ -101,56 +132,26 @@
 						<span class="price">¥99.00</span>
 					</div>
 				</div>
-			</a>
-		</section>
-		<section class="section recomend-courses">
-			<h2 class="section-tt">老师推荐课程</h2>
-			<a class="course-card-wrapper js-report-link" href="#">
-				<div class="course-card-cover">
-					<img src="../../assets/wj-imgs/picture00.jpg">
-					<span class="course-card-tips">145人购买</span>
-				</div>
-				<div class="course-card-content">
-					<h3 class="course-card-name">用得上的商学课 第2季 - 工作方法论</h3>
-					<div class="course-card-price">
-						<span class="price">¥99.00</span>
-					</div>
-				</div>
-			</a>
-			<a class="course-card-wrapper js-report-link" href="#">
-				<div class="course-card-cover">
-					<img src="../../assets/wj-imgs/picture00.jpg">
-					<span class="course-card-tips">145人购买</span>
-				</div>
-				<div class="course-card-content">
-					<h3 class="course-card-name">用得上的商学课 第2季 - 工作方法论</h3>
-					<div class="course-card-price">
-						<span class="price">¥99.00</span>
-					</div>
-				</div>
-			</a>
-		</section>
+			</a> -->
+		</ul>
 		
 		<div class="section topic-seo-mod">
 			<div class="tab">
 				<div class="tab-bar">
-					<div class="tab-bar-item active">相关培训</div>
-					<div class="tab-bar-item ">热门培训</div>
+					<div class="tab-bar-item active" ref="xiang" @click="xx">相关培训</div>
+					<div class="tab-bar-item " @click="hot" ref="re">热门培训</div>
 				</div>
 				<div class="tab-content">
-					<div class="tab-content-item active">
+					<div class="tab-content-item" ref="zhu" v-show="tru">
 						<a href="#">注会<!-- -->培训</a>
 						<a href="#">金融理财<!-- -->培训</a>
-						<a href="/topic/boyinzhuchi">播音主持<!-- -->培训</a>
-						<!-- <a href="/topic/mem">mem培训</a>
-						<a href="/topic/shuidiangong">水电工培训</a>
-						<a href="/topic/chujikuaiji">初级会计培训</a> -->
+						<a href="#">播音主持<!-- -->培训</a>
 					</div>
-					<!-- <div class="tab-content-item ">
-						<a href="/topic/jianshenjiaolian">健身教练培训</a>
-						<a href="/topic/dongmanjiaoyu">动漫教育培训</a>
-						<a href="/topic/aoshu">奥数培训</a>
-					</div> -->
+					<div class="tab-content-item" ref="jian" style="display:none" v-show="fal">
+						<a href="#">健身教练培训</a>
+						<a href="#">动漫教育培训</a>
+						<a href="#">奥数培训</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -161,6 +162,60 @@
 </template>
 
 <script>
+	export default {
+		name:'delabel',
+		data:function(){
+			return {
+				data:"",
+				tru:true,
+				fal:false
+			}
+		},
+		methods:{
+			domore:function(){
+				this.$refs.domore.style.maxHeight="";
+			},
+			hot:function(){
+				// this.$refs.zhu.style.display="none";
+				// this.$refs.jian.style.display="block";
+				// this.$refs.re.style.borderBottom=".02rem solid #009eef";
+				// this.$refs.re.style.color="#009eef";
+				// this.$refs.re.style.fontSize=" .2rem";
+				// this.$refs.xiang.style.borderBottom="none";
+				// this.$refs.xiang.style.color="black";
+				this.tru=true;
+				this.fal=false
+			},
+			xx:function(){
+				// this.$refs.jian.style.display="none";
+				// this.$refs.zhu.style.display="block";
+				// this.$refs.xiang.style.borderBottom=".02rem solid #009eef";
+				// this.$refs.xiang.style.color="#009eef";
+				// this.$refs.xiang.style.fontSize=" .2rem";
+				// this.$refs.re.style.borderBottom="";
+				// this.$refs.re.style.color="";
+				// this.$refs.re.style.fontSize="";
+				this.tru=false;
+				this.fal=true
+			}
+		},
+		props:{
+			id:String
+		},
+		created:function(){
+		fetch('http://localhost:3000/details')
+		.then((res)=>{
+			return res.json();
+		})
+		.then((datas)=>{
+			for(var i in datas){
+                    if(datas[i].details_id==this.id){
+						this.data=datas[i]
+                    }
+			    }   
+		})
+	}	
+	}	
 </script>
 
 <style  scoped="scoped">
@@ -197,6 +252,24 @@
 	float: left;
 	font-size: .14rem;
 	line-height: .28rem;
+}
+.collapse-btn {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -.005rem;
+}
+.collapse-virtual {
+    height: .3rem;
+}
+
+.collapse-tip {
+    font-size: .14rem;
+    color: #000;
+    text-align: center;
+    line-height: .2rem;
+    padding: .2rem 0 .02rem;
+    background-color: #fff;
 }
 
 .teacher-list-wrapper {
@@ -252,12 +325,11 @@
     height: .58rem;
     line-height: .19rem;
 }
-
 .dela p{
 	font-size: .16rem;
 	font-weight: 600;
 }
-.last{
+.dela:last-child{
 	margin-top: .3rem;
 	margin-bottom: .1rem;
 }
@@ -265,7 +337,7 @@
 	width: 100%;
 	display: block;
 }
-.dela .detail-sign{
+.detail-sign{
 	font-size: .1rem;
 	text-align: -moz-left;
 }

@@ -4,6 +4,23 @@
             <li class="border-bottom">
                 <div class="u-teacher-card">
                      <div class="u-teacher-card__img">
+                         <img src="../../assets/wj-imgs/130.webp">
+                    </div> 
+                    <div class="u-teacher-card__right"> 
+                        <h3 class="u-teacher-card__name">
+                            <em class="u-teacher-card__word">安心</em>
+                         </h3>
+                         <p class="u-teacher-card__info">
+                             <span class="u-teacher-card__info-item">课程1</span>
+                             <span class="u-teacher-card__info-item">学生2</span>
+                        </p> 
+                       <p class="u-teacher-card__desc">80后准妈妈，曾任职于百度、京东等一线互联网公司，致力于让更多中老年人赶上移动互联网时代</p>
+                    </div>
+                </div>
+            </li>
+            <li class="border-bottom">
+                <div class="u-teacher-card">
+                     <div class="u-teacher-card__img">
                          <img src="../../assets/wj-imgs/teacher1.jpg">
                     </div> 
                     <div class="u-teacher-card__right"> 
@@ -41,7 +58,6 @@
 
 .u-teacher-card {
     display: block;
-    overflow: hidden;
     padding: .14rem 0;
     background-color: #fff;
 }
@@ -63,6 +79,10 @@
     padding-right: .1rem;
 }
 
+.u-teacher-card__name {
+    font-size: 0;
+    display: block;
+}
 .u-teacher-card__word {
     display: inline-block;
     overflow: hidden;
@@ -95,5 +115,27 @@
     line-height: .14rem;
     color: #000;
 }
-    
+
+.u-teacher-card__desc {
+    margin-top: .08rem;
+    max-height: .63rem;
+    font-size: .14rem;
+    line-height: .21rem;
+    color: #777;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+}
+
+.border-bottom:after {
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    border-top: 1px solid #e1e1e1;
+    content: ' ';
+}
 </style>
